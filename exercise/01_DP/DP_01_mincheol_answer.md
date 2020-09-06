@@ -1,9 +1,9 @@
 ### 문제
 
-​        7
-​      3  8
-​    8  1  0
-  2  7  4  4
+<nbsp><nbsp><nbsp><nbsp>7<br>
+<nbsp><nbsp><nbsp>3  8<br>
+<nbsp><nbsp>8  1  0<br>
+<nbsp>2  7  4  4<br>
 4  5  2  6  5
 
  
