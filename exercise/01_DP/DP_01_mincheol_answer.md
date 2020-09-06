@@ -1,12 +1,6 @@
 ### 문제
 
-<nbsp><nbsp><nbsp><nbsp>7<br>
-<nbsp><nbsp><nbsp>3  8<br>
-<nbsp><nbsp>8  1  0<br>
-<nbsp>2  7  4  4<br>
-4  5  2  6  5
-
- 
+![image-20200907084315676](C:\Users\KwonMincheol\AppData\Roaming\Typora\typora-user-images\image-20200907084315676.png)
 
 위 그림은 크기가 5인 정수 삼각형의 한 모습이다.
 
