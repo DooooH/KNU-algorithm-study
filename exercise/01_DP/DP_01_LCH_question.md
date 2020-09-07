@@ -1,4 +1,4 @@
-# 
+# 호텔
 문제 링크 : https://www.acmicpc.net/problem/1106
 
 > 문제
