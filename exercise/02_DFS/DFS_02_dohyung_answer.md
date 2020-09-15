@@ -71,3 +71,54 @@ int main()
 	return (0);
 }
 ```
+
+## 16437번: 양 구출 작전
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> island[123457];
+pair<char, int> type_cost[123457];
+
+long dfs(int num)
+{
+	long sub_sum = 0;
+
+	if (type_cost[num].first == 'S')
+		sub_sum += type_cost[num].second;
+	for (int i = 0; i < island[num].size(); i++)
+	{
+		sub_sum += dfs(island[num][i]);
+	}
+	if (island[num].size() == 0)
+		return (sub_sum);
+	if (type_cost[num].first == 'W') // has child && Wolf
+	{
+		sub_sum -= type_cost[num].second;
+		if (sub_sum < 0)
+			sub_sum = 0;
+		return (sub_sum);
+	}
+	return (sub_sum);
+}
+
+int main()
+{
+	long answer = 0;
+	int N;
+
+	cin >> N;
+	char	type;
+	int		cost;
+	int		from;
+	for (int i = 2; i <= N; i++)
+	{
+		cin >> type >> cost >> from;
+		island[from].push_back(i);
+		type_cost[i] = make_pair(type, cost);
+	}
+	cout << dfs(1);
+	return (0);
+}
+```
