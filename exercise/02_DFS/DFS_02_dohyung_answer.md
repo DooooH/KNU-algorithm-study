@@ -122,3 +122,106 @@ int main()
 	return (0);
 }
 ```
+
+## 2573번: 빙산
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int arr[300][300];
+int visit[300][300];
+int speed[300][300];
+int N, M;
+int x[] = {1, -1, 0, 0};
+int y[] = {0, 0, 1, -1};
+
+int dfs(int i, int j)
+{
+	if (i < 0 || i >= N || j < 0 || j >= M)
+		return (0);
+	if (visit[i][j] == 0 && arr[i][j] != 0)
+	{
+		visit[i][j] = 1;
+		for(int k = 0; k < 4; k++)
+			dfs(i + x[k], j + y[k]);
+		return (1);
+	}
+	return (0);
+}
+
+int count()
+{
+	int cnt = 0;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			cnt += dfs(i, j);
+		}
+	}
+	memset(visit, 0, sizeof(visit));
+	return cnt;
+}
+
+void update_speed()
+{
+	int cnt = 0;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (arr[i][j] != 0)
+			{
+				for (int k = 0; k < 4; k++)
+				{
+					if (arr[i + x[k]][j + y[k]] == 0)
+						cnt += 1;
+				}
+				speed[i][j] = cnt;
+			}
+			cnt = 0;
+		}
+	}
+}
+
+void after_year()
+{
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (arr[i][j] != 0)
+			{
+				arr[i][j] -= speed[i][j];
+				if (arr[i][j] < 0)
+					arr[i][j] = 0;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int year = 0;
+	cin >> N >> M;
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < M; j++)
+			cin >> arr[i][j];
+	while (count() != 0)
+	{
+		update_speed();
+		year++;
+		after_year();
+		if (count() >= 2)
+		{
+			cout << year;
+			return (0);
+		}
+	}
+	cout << 0;
+	return 0;
+}
+```
