@@ -4,7 +4,7 @@
 
 ---
 ## 참여자
-- 권민철(JAVA)
+- [권민철](https://github.com/ventania1680/)(JAVA)
 - 김도형(C++)
 - 이정진(JAVA)
 - 이채현(C++)
