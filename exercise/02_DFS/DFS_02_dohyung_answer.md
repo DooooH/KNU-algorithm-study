@@ -225,3 +225,70 @@ int main()
 	return 0;
 }
 ```
+
+## 경주로 건설
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+#define MAX 627 * 500
+
+int N;
+int x[] = {0, 0, 1, -1};
+int y[] = {1, -1, 0, 0};
+int visit_arr[26][26];
+
+void dfs(vector<vector<int>> board, int i, int j, int prev, int cost)
+{
+	int first_cost = cost;
+
+	if (i < 0 || i >= N || j < 0 || j >= N)
+		return ;
+	if (i == N - 1 && j == N - 1)
+	{
+		visit_arr[i][j] = min(visit_arr[i][j], cost);
+		return ;
+	}
+	if (visit_arr[i][j] == 0 && board[i][j] == 0)
+	{
+		if (visit_arr[i][j] == 0)
+			visit_arr[i][j] = cost;
+		else
+			visit_arr[i][j] = min(cost, visit_arr[i][j]);
+		for (int k = 0; k < 4; k++)
+		{
+			cost = first_cost;
+			cost += 100;
+			if (prev != -1 && ((k >= 2 && prev < 2) || (k < 2 && prev >= 2)))
+				cost += 500;
+			dfs(board, i + y[k], j + x[k], k, cost);
+		}
+	}
+	else if (board[i][j] == 0 && visit_arr[i][j] > 0) // 벽이 아니면서, 방문한 적 있음
+	{
+		if (visit_arr[i][j] >= cost)
+		{
+			visit_arr[i][j] = min(cost, visit_arr[i][j]);
+			for (int k = 0; k < 4; k++)
+			{
+				cost = first_cost;
+				cost += 100;
+				if (prev != -1 && ((k >= 2 && prev < 2) || (k < 2 && prev >= 2)))
+					cost += 500;
+				dfs(board, i + y[k], j + x[k], k, cost);
+			}
+		}
+	}
+}
+
+int solution(vector<vector<int>> board) {
+    int answer = 0;
+	N = board.size();
+	visit_arr[N-1][N-1] = MAX;
+	dfs(board, 0, 0, -1, 0);
+	answer = visit_arr[N - 1][N - 1];
+    return answer;
+}
+```
+
+테스트케이스 14번 통과 X
