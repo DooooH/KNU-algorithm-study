@@ -5,7 +5,7 @@
 ---
 ## 참여자
 - [권민철](https://github.com/ventania1680/)(JAVA)
-- 김도형(C++)
+- [김도형](https://github.com/DooooH)(C++)
 - 이정진(JAVA)
 - 이채현(C++)
 
