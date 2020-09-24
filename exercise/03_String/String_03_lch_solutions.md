@@ -1,6 +1,6 @@
 # 반복 패턴   
 >Z 알고리즘 풀이
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstdio>
@@ -74,7 +74,7 @@ int main() {
 ```
 ***
 >KMP 알고리즘 풀이
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
@@ -122,7 +122,7 @@ int main() {
 ```
 ***
 # 문자열 뽑기
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -192,7 +192,7 @@ Top-Down의 재귀호출 DP를 활용해 문제 해결
 
 
 # Cube Editor
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -234,7 +234,7 @@ int main() {
 
 # 전화번호 목록
 >Trie 풀이
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -315,7 +315,7 @@ int main() {
 Trie에 한 글자씩 삽입해가며 앞 인덱스 문자열의 길이만큼 Trie에 이미 존재하면 실패
 ***
 >단순비교 풀이
-```
+```c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
