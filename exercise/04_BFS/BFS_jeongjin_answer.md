@@ -122,4 +122,194 @@ public class BJ1194 {
 }
 
 
+## DSLR
+```java
+
+package com.company;
+
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(bf.readLine());
+        for (int i = 0; i < N; i++) {
+            StringTokenizer stringTokenizer = new StringTokenizer(bf.readLine());
+            String A = stringTokenizer.nextToken();
+            int B = Integer.parseInt(stringTokenizer.nextToken());
+            boolean[] visited= new boolean[10001];
+            Queue<Pair> queue = new LinkedList<>();
+
+            queue.offer(new Pair("",Integer.parseInt(A)));
+            visited[Integer.parseInt(A)] = true;
+
+            while(!queue.isEmpty()){
+                Pair tmp = queue.poll();
+
+
+                if(!visited[(tmp.resister * 2) % 10000]) {
+                    if((tmp.resister * 2) % 10000==B)
+                    {
+                        bufferedWriter.write(tmp.dslr + "D\n");
+                        break;
+                    }
+                    queue.offer(new Pair(tmp.dslr + "D", (tmp.resister * 2) % 10000));
+                    visited[(tmp.resister * 2) % 10000] = true;
+
+                    }
+
+                if (tmp.resister == 0) { // S
+                    if(!visited[9999]){
+                        if(B == 9999)
+                        {
+                            bufferedWriter.write(tmp.dslr + "S\n");
+                            break;
+                        }
+                        queue.offer(new Pair(tmp.dslr + "S", 9999));
+                        visited[9999] = true;
+                    }
+                } else {
+                    if (!visited[tmp.resister - 1]) {
+                        if((tmp.resister - 1) ==B)
+                        {
+                            bufferedWriter.write(tmp.dslr + "S\n");
+                            break;
+                        }
+                        queue.offer(new Pair((tmp.dslr + "S"), tmp.resister - 1));
+                        visited[tmp.resister -1] =true;
+                    }
+                }
+                // L left 1 bit
+                int afterLint = tmp.d2 * 1000 + tmp.d3 * 100 + tmp.d4 * 10 + tmp.d1;
+                if(!visited[afterLint]){
+                    if(B == afterLint)
+                    {
+                        bufferedWriter.write(tmp.dslr + "L\n");
+                        break;
+                    }
+                    queue.offer(new Pair(tmp.dslr+"L", tmp.d2, tmp.d3, tmp.d4, tmp.d1, afterLint));
+                    visited[afterLint]= true;
+                }
+                int afterRint =tmp.d2 * 10 + tmp.d3  + tmp.d4 * 1000 + tmp.d1 * 100;
+                if(!visited[afterRint]){
+                    if(B == afterRint)
+                    {
+                        bufferedWriter.write(tmp.dslr + "R\n");
+                        break;
+                    }
+                    queue.offer(new Pair(tmp.dslr+"R", tmp.d4, tmp.d1, tmp.d2, tmp.d3,afterRint));
+                    visited[afterRint]= true;
+                }
+            }
+        }
+        bufferedWriter.close();
+    }
+}
+class Pair{
+    String dslr;
+    int resister;
+    int d1,d2,d3,d4;
+    public Pair(String dslr, int resister){
+        this.dslr = dslr;
+        this.resister = resister;
+        this.d4 = (resister%10);
+        this.d3 = (resister/10)%10;
+        this.d2 = (resister/100)%10;
+        this.d1 = resister/1000;
+    }
+    public Pair(String dslr, int d1, int d2, int d3, int d4, int resister) {
+        this.dslr = dslr;
+        this.d1 = d1;
+        this.d2 = d2;
+        this.d3 = d3;
+        this.d4 = d4;
+        this.resister =resister;
+    }
+
+}
+```
+
+## 엘리베이터 틀림
+``` java
+package com.company;
+
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(bf.readLine());
+        int N = Integer.parseInt(st.nextToken()); // 최대 층수
+        int M = Integer.parseInt(st.nextToken()); // 엘리베이터 수
+        int[][] elevator = new int[M+1][N+1];
+        boolean[] visited = new boolean[M+1];
+        for (int i = 1; i <= M; i++) {
+            st = new StringTokenizer(bf.readLine());
+            int start = Integer.parseInt(st.nextToken());
+            int term = Integer.parseInt(st.nextToken());
+            for (int j = start; j <= N; j+=term) {
+                elevator[i][j] = 1;
+            }
+        }
+
+        Queue<Pair> queue = new LinkedList<>();
+
+        st = new StringTokenizer(bf.readLine());
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+
+        for (int i = 1; i <= M; i++) { // i는 엘리베이터 번호
+            if(elevator[i][A] == 1) {
+                queue.offer(new Pair(i,Integer.toString(i)));
+                visited[i]=true;
+            }
+        }
+        while (!queue.isEmpty()){
+            Pair pair = queue.poll();
+            for (int i = 1; i <= N; i++) { // 엘리베이터 층수
+                if(elevator[pair.elevator][i] == 1){ //  엘리베이터에서 갈수 있는 층 찾기
+                    if(i == B){ // 가고자 하는 층이면,
+                        bw.write(pair.visited.length() + "\n");
+                        for (int j = 0; j < pair.visited.length() ; j++) {
+                            bw.write(""+ pair.visited.charAt(j)+"\n");
+                        }
+                        bw.close();
+                        return;
+                    }
+                    for (int j = 1; j <= M; j++) { // 엘리베이터 수
+                        if(elevator[j][i]==1){
+                            if(!visited[j]){
+                                queue.offer(new Pair(j,pair.visited + ""+ j));
+                                visited[j] = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        bw.write("-1\n");
+        bw.close();
+
+    }
+}
+class Pair{
+    int elevator;
+    String visited;
+    public Pair(int elevator, String visited){
+        this.elevator = elevator;
+        this.visited = visited;
+
+    }
+}
 ```
