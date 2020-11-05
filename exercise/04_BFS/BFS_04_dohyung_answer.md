@@ -144,7 +144,7 @@ int solution(vector<int> numbers, int target) {
 
 ## 백준 9019번 : DSLR
 
-인덱스접근을 잘못해서 런타임에러가 
+인덱스접근을 잘못해서 런타임에러가 났음.
 
 ```c++
 #include <iostream>
