@@ -1,6 +1,6 @@
 # BFS(Breadth First Search) 너비 우선 탐색
 ### 박영철교수님 수업자료
-    Breadth first search starts at vertex v and marks it as visited. It then visits each of the vertices on v's adjacency list. When we have visited all the vertices onv's adjacency list, we visit all the unvisited vertices that are adjacent to the first vertex on v's adjacency list. To implement this scheme, as we visit each vertex we place the vertex in a queue. When we have exhausted an adjacency list, we remove a vertex from the queue and proceed by examining each of the vertices on its adjacency list. Unvisited vertices are visited and then placed on the queue; visited vertices are ignored. We have finished the search when the queue is empty
+Breadth first search starts at vertex v and marks it as visited. It then visits each of the vertices on v's adjacency list. When we have visited all the vertices onv's adjacency list, we visit all the unvisited vertices that are adjacent to the first vertex on v's adjacency list. To implement this scheme, as we visit each vertex we place the vertex in a queue. When we have exhausted an adjacency list, we remove a vertex from the queue and proceed by examining each of the vertices on its adjacency list. Unvisited vertices are visited and then placed on the queue; visited vertices are ignored. We have finished the search when the queue is empty
 
 ### 김용태교수님 수업자료
 #### BFS Procedure 
