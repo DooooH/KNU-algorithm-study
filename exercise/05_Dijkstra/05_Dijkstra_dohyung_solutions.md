@@ -197,3 +197,130 @@ int main()
 	return 0;
 }
 ```
+
+
+## 백준 16118번 : 달빛 여우
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+#define INF 999999999999999
+
+int v,e;
+int from, to, cost;
+// bool status[4001] = {false, };
+vector<pair<int, int>> link[4001];
+priority_queue<pair<long long, int>> pq_fox;	// 자료형 크기 고려
+priority_queue<pair<pair<long long, int>, int>> pq_wolf;	// 자료형 크기 고려
+long long dist_fox[4001] ={0, };
+long long dist_wolf[4001][2] = {{0, }, {0, }};
+
+void init_fox()
+{
+	for (int i = 2; i <= v; i++)
+		dist_fox[i] = INF;
+}
+
+void init_wolf()
+{
+	for (int i = 2; i <= v; i++)
+	{
+		dist_wolf[i][0] = INF;
+		dist_wolf[i][1] = INF;
+	}
+	dist_wolf[1][1] = INF;
+}
+
+void dijkstra_fox()
+{
+	int current;
+	long long distance;
+	int node;
+	long long node_cost;
+
+	init_fox();
+	pq_fox.push({0, 1}); // cost, start = 1
+	while (!pq_fox.empty())
+	{
+		current = pq_fox.top().second;
+		distance = -pq_fox.top().first;
+		pq_fox.pop();
+		if (dist_fox[current] < distance) continue;
+		for (int i = 0; i < link[current].size(); i++)
+		{
+			node = link[current][i].first;
+			node_cost = link[current][i].second;
+			if (dist_fox[node] >= distance + node_cost)
+			{
+				dist_fox[node] = distance + node_cost;
+				pq_fox.push({-dist_fox[node], node});
+			}
+		}
+	}
+}
+
+void dijkstra_wolf()
+{
+	int current;
+	long long distance;
+	int node;
+	long long node_cost;
+	int status;
+
+	init_wolf();
+	pq_wolf.push({{0, 1}, 0}); // cost, start = 1
+	while (!pq_wolf.empty())
+	{
+		current = pq_wolf.top().first.second;
+		distance = -pq_wolf.top().first.first;
+		status = pq_wolf.top().second;
+		pq_wolf.pop();
+		if (dist_wolf[current][!status] < distance) continue;
+		for (int i = 0; i < link[current].size(); i++)
+		{
+			node = link[current][i].first;
+			if (status)
+				node_cost = 2 * link[current][i].second;
+			else
+				node_cost = 0.5 * link[current][i].second;
+			if (dist_wolf[node][status] >= distance + node_cost)
+			{
+				dist_wolf[node][status] = distance + node_cost;
+				pq_wolf.push({{-dist_wolf[node][status], node}, !status});
+			}
+		}
+	}
+}
+
+int	count_answer()
+{
+	int count = 0;
+
+	for(int i = 1; i <= v; i++)
+	{
+		if (dist_fox[i] < dist_wolf[i][0] && dist_fox[i] < dist_wolf[i][1])
+			count++;
+		// cout << i << ":: " << dist_fox[i] << " " << dist_wolf[i][0] << " " << dist_wolf[i][1] << "\n";
+	}
+	return count;
+}
+
+int main()
+{
+	cin >> v >> e;
+	for (int i = 0; i < e; i++)
+	{
+		cin >> from >> to >> cost;
+		link[from].push_back({to, 2 * cost});
+		link[to].push_back({from, 2 * cost});
+	}
+	dijkstra_fox();
+	dijkstra_wolf();
+	cout << count_answer();
+	return 0;
+}
+```
