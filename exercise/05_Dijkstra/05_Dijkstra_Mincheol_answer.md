@@ -17,7 +17,7 @@ class stump implements Comparable<stump> {
     int pos;
     int dist;
     boolean run;
-
+    
     public stump(int pos, int dist) {
         this.pos = pos;
         this.dist = dist;
@@ -67,6 +67,7 @@ public class BOJ16118 {
         fpq.offer(new stump(1, 0));
         while(!fpq.isEmpty()) {
             stump cur = fpq.poll();
+            if (cur.dist > fox[cur.pos]) continue;
             for (stump i : al[cur.pos]) {
                 int newDist = cur.dist+i.dist;
                 if (fox[i.pos] > newDist) {
@@ -79,6 +80,8 @@ public class BOJ16118 {
         wpq.offer(new stump(1, 0));
         while(!wpq.isEmpty()) {
             stump cur = wpq.poll();
+            if (cur.run && cur.dist > wolf[0][cur.pos]) continue;
+            if (!cur.run && cur.dist > wolf[1][cur.pos]) continue;
             for (stump i : al[cur.pos]) {
                 int newDist = cur.dist;
                 if (cur.run) {
@@ -104,6 +107,7 @@ public class BOJ16118 {
         System.out.println(answer);
     }
 }
+
 ```
 
 
