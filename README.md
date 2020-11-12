@@ -14,6 +14,8 @@
 2. DFS (20.09.17)
 3. String
 4. BFS
+5. Dijkstra
+6. Bellman-Ford
 
 ## 진행방식
 - 주제별 문제를 하나씩 찾아서 레포에 업로드한다. 
