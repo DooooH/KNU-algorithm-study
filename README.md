@@ -1,6 +1,6 @@
 # 알고리즘 스터디
 
-## Ver2.
+## Ver2.(2020.12.21~ ing)
 -  매주 목요일 오후 8시 온라인 진행
 ## 참여자
 - [권민철](https://github.com/ventania1680/)(JAVA)
@@ -16,8 +16,8 @@
 
 ## 파일명 작성 규칙
 - 파일 업로드 시 숫자+이름+유형으로 올리기
-- ex1) 1_Jeongjin_Ex.md
-- ex2) 1_Jeongjin_Sol.md
+- ex1) 01_Jeongjin_Ex.md
+- ex2) 01_Jeongjin_Sol.md
 ---
 ## Ver1.
 - 매주 목요일 오후 2시
