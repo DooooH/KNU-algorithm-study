@@ -31,3 +31,8 @@ KOI 부설 과학연구소에서는 많은 종류의 산성 용액과 알칼리�
 ```
 -99 98
 ```
+
+## 유사문제
+유사문제 백준 [세용액](https://www.acmicpc.net/problem/2473)
+
+카카오인턴 20년도 :  프로그래머스 [보석 쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258)
