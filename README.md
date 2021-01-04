@@ -3,11 +3,11 @@
 ## Ver2.(2020.12.21~ ing)
 -  매주 목요일 오후 8시 온라인 진행
 ## 참여자
-- [권민철](https://github.com/ventania1680/)(JAVA)
-- [김도형](https://github.com/DooooH)(C++)
+- [김도형](https://github.com/DooooH)(JAVA)
 - [이정진](https://github.com/JIN-096)(JAVA)
 - 이채현(C++)
 - 이정우
+- 김지수
 
 ## 진행방식
 - 주차별 문제를 하나씩 정해서 설명 없이 올린다.
@@ -19,6 +19,10 @@
 - ex1) 01_Jeongjin_Ex.md
 - ex2) 01_Jeongjin_Sol.md
 ---
+
+<details>
+<summary>Ver1.</summary>
+ 
 ## Ver1.
 - 매주 목요일 오후 2시
 - 시험기간을 제외하고 주 1회
@@ -50,3 +54,4 @@
 - 파일 업로드 시, 파일 뒤에 이름을 이니셜로 붙일 것
 - ex) DP_01_kdh.java
 ---
+</details>
