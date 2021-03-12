@@ -3,7 +3,7 @@
 ## Ver2.(2020.12.21~ ing)
 -  매주 목요일 오후 8시 온라인 진행
 ## 참여자
-- [김도형](https://github.com/DooooH)(JAVA)
+- [김도형](https://github.com/DooooH)(C++)
 - [이정진](https://github.com/JIN-096)(JAVA)
 - 이채현(C++)
 - 이정우
