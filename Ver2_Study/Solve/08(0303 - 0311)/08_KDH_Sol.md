@@ -207,3 +207,68 @@ int main() {
     cout << max_life << "\n";
 }
 ```
+
+## 수상 택시
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+typedef pair<int, int> p;
+int target;
+vector<p> overlap;
+vector<p> trimmed;
+
+void trim_overlap() {
+    int sum = 0;
+    int start = -1, end = -1;
+    for (int i = 0; i < overlap.size(); i++)
+    {
+        if (sum == 0)
+            start = overlap[i].first;
+        sum += overlap[i].second;
+        if (sum == 0)
+        {
+            end = overlap[i].first;
+            sum = 0;
+            trimmed.push_back({start, end});
+            start = -1;
+            end = -1;
+        }
+    }
+}
+
+long long solution() {
+    long long answer = 0;
+    long long trim_sum = 0;
+    trim_overlap();
+    answer += target;
+    for (int i = 0; i < trimmed.size(); i++)
+        trim_sum += (trimmed[i].second - trimmed[i].first) * 2;
+    answer += trim_sum;
+    return answer;
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int paths;
+
+    cin >> paths >> target;
+    for (int i = 0; i < paths; i++)
+    {
+        int from, to;
+        cin >> from >> to;
+        if (from < to)
+            continue;
+        overlap.push_back({to, -1});
+        overlap.push_back({from, 1});
+    }
+    sort(overlap.begin(), overlap.end());
+    cout << solution() << "\n";
+    return 0;
+}
+```
