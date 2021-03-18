@@ -6,35 +6,50 @@ ios_base::sync_with_stdio(false); << 없어서 시간초과남
 2. top < current height -> 1.이나 3.까지 pop
 3. stack is empty -> 0 출력
 ```c++
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
- 
+#include <stdio.h>
+#include <stdlib.h>
+#include<stack>
+#include<algorithm>
+#include<memory.h>
+#include<string>
+#include<map>
+#include<vector>
+#include<math.h>
 using namespace std;
-int main() {
-    ios_base::sync_with_stdio(0); cin.tie(0);
-    int n;
-    int ary[500001], dist[500001];
- 
-    ary[0] = 0x7fffffff;
- 
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> ary[i];
- 
- 
-    for (int i = 2; i <= n; i++) {
-        if (ary[i - 1] < ary[i]) {
-            int t = i - 1;
-            while (ary[t] < ary[i])
-                t = dist[t];
-            dist[i] = t;
-        }
-        else {
-            dist[i] = i - 1;
-        }
-    }
- 
-    for (int i = 1; i <= n; i++)
-        cout << dist[i] << ' ';
+
+stack<pair<int, int>> s;
+
+int main(void)
+{
+	cin.tie(0);
+	ios_base::sync_with_stdio(false);
+
+	int n; //# of towers
+	int h; // current height of tower
+	cin >> n;
+	for (int i = 1; i < n + 1; i++)
+	{
+		cin >> h;
+		while (!s.empty())
+		{
+			if (s.top().second > h) // 1. top > current height
+			{
+				printf("%d ", s.top().first);
+				break;
+			}
+			else // 2. top < current height
+				s.pop();
+		}
+		if (s.empty())//3. stack is empty
+		{
+			printf("0 ");
+		}
+		s.push(make_pair(i, h));
+	}
+	return 0;
 }
 ```
 ***
