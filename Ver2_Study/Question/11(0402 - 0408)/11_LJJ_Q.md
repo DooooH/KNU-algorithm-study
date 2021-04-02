@@ -9,9 +9,12 @@
 오늘은 이 지도에서 지나갈 수 있는 길이 몇 개 있는지 알아보려고 한다. 길이란 한 행 또는 한 열 전부를 나타내며, 한쪽 끝에서 다른쪽 끝까지 지나가는 것이다. 
 
 다음과 같은 N=6인 경우 지도를 살펴보자.
-<img src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14890/1.png">
+
+<img src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14890/1.png" width="300" height="300"><br>
+
 이때, 길은 총 2N개가 있으며, 아래와 같다.
-<img src = "https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14890/2.png">
+<br>
+<img src = "https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14890/2.png" width="300" height="300"><br>
 
 길을 지나갈 수 있으려면 길에 속한 모든 칸의 높이가 모두 같아야 한다. 또는, 경사로를 놓아서 지나갈 수 있는 길을 만들 수 있다. 경사로는 높이가 항상 1이며, 길이는 L이다. 또, 개수는 매우 많아 부족할 일이 없다. 경사로는 낮은 칸과 높은 칸을 연결하며, 아래와 같은 조건을 만족해야한다.
 
@@ -36,7 +39,7 @@ L = 2인 경우에 경사로를 놓을 수 있는 경우를 그림으로 나타�
 
 가장 위에 주어진 그림 예의 경우에 지나갈 수 있는 길은 파란색으로, 지나갈 수 없는 길은 빨간색으로 표시되어 있으며, 아래와 같다. 경사로의 길이 L = 2이다.
 
-<img src = "https://upload.acmicpc.net/255e47cf-0988-4b7f-b81c-2742f010a4c5/-/preview/">
+<img src = "https://upload.acmicpc.net/255e47cf-0988-4b7f-b81c-2742f010a4c5/-/preview/" width="300" height="300">
 
 지도가 주어졌을 때, 지나갈 수 있는 길의 개수를 구하는 프로그램을 작성하시오.
 
