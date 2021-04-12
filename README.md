@@ -1,14 +1,13 @@
 # 알고리즘 스터디
 
-## Ver2.(2020.12.21~ ing)
+## Ver2-1.(2021.04.08~ ing)
 -  매주 목요일 오후 8시 온라인 진행
 ## 참여자
 - [김도형](https://github.com/DooooH)(C++)
 - [이정진](https://github.com/JIN-096)(JAVA)
-- 이채현(C++)
-- 이정우
 - 김지수
 - 박효상
+- 김영준
 
 ## 진행방식
 - 주차별 문제를 하나씩 정해서 설명 없이 올린다.
@@ -20,6 +19,33 @@
 - ex1) 01_Jeongjin_Ex.md
 - ex2) 01_Jeongjin_Sol.md
 ---
+
+<details>
+<summary>Ver2.</summary>
+## Ver2.(2020.12.21~ ing)
+-  매주 목요일 오후 8시 온라인 진행
+## 참여자
+- [김도형](https://github.com/DooooH)(C++)
+- [이정진](https://github.com/JIN-096)(JAVA)
+- 김지수
+- 박효상
+- 김영준
+
+- 이채현(취업)
+- 이정우(SSAFY)
+
+
+## 진행방식
+- 주차별 문제를 하나씩 정해서 설명 없이 올린다.
+- 주차별 문제를 각자 다음 스터디날 전까지 풀어온다.
+- 스터디 당일 각자의 풀이를 구두로 설명하고 질문을 주고 받는다.
+
+## 파일명 작성 규칙
+- 파일 업로드 시 숫자+이름+유형으로 올리기
+- ex1) 01_Jeongjin_Ex.md
+- ex2) 01_Jeongjin_Sol.md
+---
+</details>
 
 <details>
 <summary>Ver1.</summary>
