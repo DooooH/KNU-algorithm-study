@@ -22,6 +22,7 @@
 
 <details>
 <summary>Ver2.</summary>
+ 
 ## Ver2.(2020.12.21~ ing)
 -  매주 목요일 오후 8시 온라인 진행
 ## 참여자
