@@ -1,5 +1,5 @@
 ## 세 용액
-> https://www.acmicpc.net/problem/2473
+> https://www.acmicpc.net/problem/2531
 
 ## 문제
 
